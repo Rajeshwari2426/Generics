@@ -27,11 +27,17 @@ namespace Generics
             var sortedArray = Sorting(genValue);
             return sortedArray.ElementAt(0);
         }
-        public T GetMax()
+        //public T GetMax()
+        //{
+        //    T maxValue = GetMaxOfThree(this.genValue);
+        //    return maxValue;
+        //}
+        public void PrintMax()
         {
             T maxValue = GetMaxOfThree(this.genValue);
-            return maxValue;
+            Console.WriteLine("Maximum value is : " + maxValue);
         }
+
 
     }
 }

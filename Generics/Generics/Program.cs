@@ -20,18 +20,18 @@ namespace Generics
             {
                 case 1:
                     int[] intArray = { 26, 24, 02,04};
-                    int intMax = new MaxNumber<int>(intArray).GetMax();
-                    Console.WriteLine("Maximum of three integers is: " + intMax);
+                    MaxNumber<int> intMax = new MaxNumber<int>(intArray);
+                    intMax.PrintMax();
                     break;
                 case 2:
-                    float[] floatArray = { 26.02f, 24.07f, 97.78f }; 
-                    float floatmax = new MaxNumber<float>(floatArray).GetMax();
-                    Console.WriteLine("Maximum of three integers is: " + floatmax);
+                    float[] floatArray = { 26.02f, 24.07f, 97.78f };
+                    MaxNumber<float> floatMax = new MaxNumber<float>(floatArray);
+                    floatMax.PrintMax();
                     break;
                 case 3:
                     string[] strArray = { "tom", "jerry", "noddy", "oswald" };
-                    string stringMax = new MaxNumber<string>(strArray).GetMax();
-                    Console.WriteLine("Maximum of three strings is: " + stringMax);
+                    MaxNumber<string> strMax = new MaxNumber<string>(strArray);
+                    strMax.PrintMax();
                     break;
                 default:
                     Console.WriteLine("Please choose the correct option");
