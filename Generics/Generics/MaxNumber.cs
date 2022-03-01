@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace Generics
 {
-    public class MaxNumber
+    public class MaxNumber<T> where T : IComparable                   //Generic class
     {
-        //Generics Method to generate max num
-        public T GetMaxOfThree<T>(T firstNum, T secondNum, T thirdNum) where T : IComparable
+        public T firstNum, secondNum, thirdNum;
+
+        public MaxNumber(T firstNum, T secondNum, T thirdNum)                      //Constructor
+        {
+            this.firstNum = firstNum;
+            this.secondNum = secondNum;
+            this.thirdNum = thirdNum;
+        }
+            //Generics Method to generate max num
+        public  static T GetMaxOfThree(T firstNum, T secondNum, T thirdNum) 
         {
             if (firstNum.CompareTo(secondNum) >= 0 && firstNum.CompareTo(thirdNum) >= 0)
             {
@@ -25,6 +33,11 @@ namespace Generics
             }
             return default;
         }
-       
+        public T GetMax()
+        {
+            T maxValue = MaxNumber<T>.GetMaxOfThree(this.firstNum, this.secondNum, this.thirdNum);
+            return maxValue;
+        }
+
     }
 }
