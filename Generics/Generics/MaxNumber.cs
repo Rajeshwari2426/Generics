@@ -8,34 +8,28 @@ namespace Generics
 {
     public class MaxNumber<T> where T : IComparable                   //Generic class
     {
-        public T firstNum, secondNum, thirdNum;
+        public T[] genValue;
 
-        public MaxNumber(T firstNum, T secondNum, T thirdNum)                      //Constructor
+        public MaxNumber(T[] genValue)                      //Constructor
         {
-            this.firstNum = firstNum;
-            this.secondNum = secondNum;
-            this.thirdNum = thirdNum;
+            this.genValue = genValue;
         }
-            //Generics Method to generate max num
-        public  static T GetMaxOfThree(T firstNum, T secondNum, T thirdNum) 
+
+        public T[] Sorting(T[] genValue)
         {
-            if (firstNum.CompareTo(secondNum) >= 0 && firstNum.CompareTo(thirdNum) >= 0)
-            {
-                return firstNum;
-            }
-            else if (secondNum.CompareTo(firstNum) >= 0 && secondNum.CompareTo(thirdNum) >= 0)
-            {
-                return secondNum;
-            }
-            else if (thirdNum.CompareTo(firstNum) >= 0 && thirdNum.CompareTo(secondNum) >= 0)
-            {
-                return thirdNum;
-            }
-            return default;
+            Array.Sort(genValue);
+            Array.Reverse(genValue);
+            return genValue;
+        }
+
+        public T GetMaxOfThree(T[] genValue)
+        {
+            var sortedArray = Sorting(genValue);
+            return sortedArray.ElementAt(0);
         }
         public T GetMax()
         {
-            T maxValue = MaxNumber<T>.GetMaxOfThree(this.firstNum, this.secondNum, this.thirdNum);
+            T maxValue = GetMaxOfThree(this.genValue);
             return maxValue;
         }
 
